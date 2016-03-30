@@ -18,16 +18,16 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 info.plist中的版本号为Bundle versions string, short这个字段对应的值
 获取版本号
 123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion = [NSBu">
-<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png =500x">
-<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png =400x">
-<meta property="og:updated_time" content="2016-03-30T16:25:57.000Z">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png">
+<meta property="og:updated_time" content="2016-03-30T16:30:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
 <meta name="twitter:description" content="项目中的常见文件
 info.plist中的版本号为Bundle versions string, short这个字段对应的值
 获取版本号
 123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion = [NSBu">
-<meta name="twitter:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png =500x">
+<meta name="twitter:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png">
   
     <link rel="alternative" href="/atom.xml" title="Alwaysyouare" type="application/atom+xml">
   
@@ -90,7 +90,7 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -232,14 +232,14 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 </ul>
 <h2 id="pch的设置"><a href="#pch的设置" class="headerlink" title="pch的设置"></a>pch的设置</h2><ul>
 <li><p>bulidsettings里面搜索<code>prefix</code>字段</p>
-<p>   <img src="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png =500x" alt=""></p>
+<p>   <img src="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png" alt=""></p>
 </li>
 <li><p>pch和混编的时候，因为pch会在所有文件添加pch里面的东西，所以需要在pch的头部判断是否为objc的文件</p>
    <figure class="highlight plain"><figcaption><span>__OBJC__    #endif</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="UIViewCOntroller的loadView"><a href="#UIViewCOntroller的loadView" class="headerlink" title="UIViewCOntroller的loadView"></a>UIViewCOntroller的loadView</h2><p>因为view是懒加载的，所以第一次使用到的时候在view的get函数中会首先调用<code>loadView</code>，然后调用<code>viewDidLoad</code></p>
-<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png =400x" alt=""></p>
+<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png" alt=""></p>
 <ul>
 <li></li>
 </ul>

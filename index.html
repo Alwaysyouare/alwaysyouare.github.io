@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -221,14 +221,14 @@
 </ul>
 <h2 id="pch的设置"><a href="#pch的设置" class="headerlink" title="pch的设置"></a>pch的设置</h2><ul>
 <li><p>bulidsettings里面搜索<code>prefix</code>字段</p>
-<p>   <img src="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png =500x" alt=""></p>
+<p>   <img src="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png" alt=""></p>
 </li>
 <li><p>pch和混编的时候，因为pch会在所有文件添加pch里面的东西，所以需要在pch的头部判断是否为objc的文件</p>
    <figure class="highlight plain"><figcaption><span>__OBJC__    #endif</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="UIViewCOntroller的loadView"><a href="#UIViewCOntroller的loadView" class="headerlink" title="UIViewCOntroller的loadView"></a>UIViewCOntroller的loadView</h2><p>因为view是懒加载的，所以第一次使用到的时候在view的get函数中会首先调用<code>loadView</code>，然后调用<code>viewDidLoad</code></p>
-<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png =400x" alt=""></p>
+<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png" alt=""></p>
 <ul>
 <li></li>
 </ul>
