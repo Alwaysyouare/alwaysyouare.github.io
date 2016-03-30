@@ -6,16 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Alwaysyouare</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎来到我的博客 今天是个特殊的日子。2010年3月25日到2016年3月25日，六年了，宠爱你始终如一。">
+  <meta name="description" content="项目中的常见文件
+info.plist中的版本号为Bundle versions string, short这个字段对应的值
+获取版本号
+123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion = [NSBu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Alwaysyouare">
-<meta property="og:url" content="http://yoursite.com/2016/03/24/hello-world/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/03/31/iOS基础-一-md/index.html">
 <meta property="og:site_name" content="Alwaysyouare">
-<meta property="og:description" content="欢迎来到我的博客 今天是个特殊的日子。2010年3月25日到2016年3月25日，六年了，宠爱你始终如一。">
-<meta property="og:updated_time" content="2016-03-25T08:01:45.000Z">
+<meta property="og:description" content="项目中的常见文件
+info.plist中的版本号为Bundle versions string, short这个字段对应的值
+获取版本号
+123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion = [NSBu">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png =500x">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png =400x">
+<meta property="og:updated_time" content="2016-03-30T16:25:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
-<meta name="twitter:description" content="欢迎来到我的博客 今天是个特殊的日子。2010年3月25日到2016年3月25日，六年了，宠爱你始终如一。">
+<meta name="twitter:description" content="项目中的常见文件
+info.plist中的版本号为Bundle versions string, short这个字段对应的值
+获取版本号
+123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion = [NSBu">
+<meta name="twitter:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png =500x">
   
     <link rel="alternative" href="/atom.xml" title="Alwaysyouare" type="application/atom+xml">
   
@@ -197,11 +209,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOS基础-一-md" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/24/hello-world/" class="article-date">
-  	<time datetime="2016-03-24T15:47:49.000Z" itemprop="datePublished">2016-03-24</time>
+      <a href="/2016/03/31/iOS基础-一-md/" class="article-date">
+  	<time datetime="2016-03-30T16:25:25.000Z" itemprop="datePublished">2016-03-31</time>
 </a>
     </div>
   
@@ -212,7 +224,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h2><p> 今天是个特殊的日子。2010年3月25日到2016年3月25日，六年了，宠爱你始终如一。</p>
+        <h2 id="项目中的常见文件"><a href="#项目中的常见文件" class="headerlink" title="项目中的常见文件"></a>项目中的常见文件</h2><ul>
+<li>info.plist中的版本号为<code>Bundle versions string, short</code>这个字段对应的值</li>
+<li><p>获取版本号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">NSString *keyForVersion = @&quot;CFBundleShortVersionString&quot;;</span><br><span class="line"> //当前软件的版本号</span><br><span class="line"> NSString *currentVersion = [NSBundle mainBundle].infoDictionary[keyForVersion];</span><br><span class="line"> //沙盒中存储的版本号</span><br><span class="line"> NSString *sandBoxVersion = [[NSUserDefaults standardUserDefaults] stringForKey:keyForVersion];</span><br><span class="line"> if (![currentVersion isEqualToString:sandBoxVersion]) &#123;</span><br><span class="line">     //需要显示</span><br><span class="line">     UIWindow *window = [UIApplication sharedApplication].keyWindow;</span><br><span class="line">     ICIPushGuideView *pushGuideView = [ICIPushGuideView viewFromXib];</span><br><span class="line">     pushGuideView.frame = window.frame;</span><br><span class="line">     [window addSubview:pushGuideView];</span><br><span class="line">     //存储版本号</span><br><span class="line">     [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:keyForVersion];</span><br><span class="line">     [[NSUserDefaults standardUserDefaults] synchronize];</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="pch的设置"><a href="#pch的设置" class="headerlink" title="pch的设置"></a>pch的设置</h2><ul>
+<li><p>bulidsettings里面搜索<code>prefix</code>字段</p>
+<p>   <img src="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png =500x" alt=""></p>
+</li>
+<li><p>pch和混编的时候，因为pch会在所有文件添加pch里面的东西，所以需要在pch的头部判断是否为objc的文件</p>
+   <figure class="highlight plain"><figcaption><span>__OBJC__    #endif</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="UIViewCOntroller的loadView"><a href="#UIViewCOntroller的loadView" class="headerlink" title="UIViewCOntroller的loadView"></a>UIViewCOntroller的loadView</h2><p>因为view是懒加载的，所以第一次使用到的时候在view的get函数中会首先调用<code>loadView</code>，然后调用<code>viewDidLoad</code></p>
+<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png =400x" alt=""></p>
+<ul>
+<li></li>
+</ul>
 
       
     </div>
@@ -222,15 +252,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/25/重新开始/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2016/03/25/重新开始/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -263,7 +289,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="" data-url="http://yoursite.com/2016/03/24/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="iOS基础-一-md" data-title="" data-url="http://yoursite.com/2016/03/31/iOS基础-一-md/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
