@@ -20,7 +20,7 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png?imageMogr2/thumbnail/480x">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/runloop.png?imageMogr2/thumbnail/480x">
-<meta property="og:updated_time" content="2016-04-07T16:23:26.000Z">
+<meta property="og:updated_time" content="2016-04-07T16:32:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
 <meta name="twitter:description" content="iOS基础知识项目中的常见文件
@@ -238,6 +238,7 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
    <figure class="highlight plain"><figcaption><span>__OBJC__    #endif</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h3 id="UIViewController的loadView"><a href="#UIViewController的loadView" class="headerlink" title="UIViewController的loadView"></a>UIViewController的loadView</h3><p>因为view是懒加载的，所以第一次使用到的时候在view的get函数中会首先调用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">![](http://7xsglu.com1.z0.glb.clouddn.com/loadView.png?imageMogr2/thumbnail/480x)</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">### UINavigationViewController</span><br><span class="line"></span><br><span class="line">- popViewController后控制器不会立马销毁，要等到动画执行完毕后再调用dealloc</span><br><span class="line"></span><br><span class="line">- 导航栏的内容由栈顶控制器的navigationItem属性决定</span><br></pre></td></tr></table></figure></p>
 <pre><code>self.navigationItem.title = @&quot;标题&quot;;
 //self.navigationController.navigationItem.title = @&quot;这种写法是错误的&quot;;
