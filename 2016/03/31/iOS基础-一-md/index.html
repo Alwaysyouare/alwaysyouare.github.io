@@ -6,28 +6,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Alwaysyouare</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="项目中的常见文件
+  <meta name="description" content="##iOS基础知识
+项目中的常见文件
 info.plist中的版本号为Bundle versions string, short这个字段对应的值
 获取版本号
-123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion = [NSBu">
+123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Alwaysyouare">
 <meta property="og:url" content="http://yoursite.com/2016/03/31/iOS基础-一-md/index.html">
 <meta property="og:site_name" content="Alwaysyouare">
-<meta property="og:description" content="项目中的常见文件
+<meta property="og:description" content="##iOS基础知识
+项目中的常见文件
 info.plist中的版本号为Bundle versions string, short这个字段对应的值
 获取版本号
-123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion = [NSBu">
-<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png">
-<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png">
-<meta property="og:updated_time" content="2016-03-30T16:30:29.000Z">
+123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersi">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png?imageMogr2/thumbnail/480x">
+<meta property="og:updated_time" content="2016-04-07T03:23:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
-<meta name="twitter:description" content="项目中的常见文件
+<meta name="twitter:description" content="##iOS基础知识
+项目中的常见文件
 info.plist中的版本号为Bundle versions string, short这个字段对应的值
 获取版本号
-123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion = [NSBu">
-<meta name="twitter:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png">
+123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersi">
+<meta name="twitter:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png?imageMogr2/thumbnail/480x">
   
     <link rel="alternative" href="/atom.xml" title="Alwaysyouare" type="application/atom+xml">
   
@@ -224,24 +226,62 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="项目中的常见文件"><a href="#项目中的常见文件" class="headerlink" title="项目中的常见文件"></a>项目中的常见文件</h2><ul>
+        <p>##iOS基础知识</p>
+<h3 id="项目中的常见文件"><a href="#项目中的常见文件" class="headerlink" title="项目中的常见文件"></a>项目中的常见文件</h3><ul>
 <li>info.plist中的版本号为<code>Bundle versions string, short</code>这个字段对应的值</li>
 <li><p>获取版本号</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">NSString *keyForVersion = @&quot;CFBundleShortVersionString&quot;;</span><br><span class="line"> //当前软件的版本号</span><br><span class="line"> NSString *currentVersion = [NSBundle mainBundle].infoDictionary[keyForVersion];</span><br><span class="line"> //沙盒中存储的版本号</span><br><span class="line"> NSString *sandBoxVersion = [[NSUserDefaults standardUserDefaults] stringForKey:keyForVersion];</span><br><span class="line"> if (![currentVersion isEqualToString:sandBoxVersion]) &#123;</span><br><span class="line">     //需要显示</span><br><span class="line">     UIWindow *window = [UIApplication sharedApplication].keyWindow;</span><br><span class="line">     ICIPushGuideView *pushGuideView = [ICIPushGuideView viewFromXib];</span><br><span class="line">     pushGuideView.frame = window.frame;</span><br><span class="line">     [window addSubview:pushGuideView];</span><br><span class="line">     //存储版本号</span><br><span class="line">     [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:keyForVersion];</span><br><span class="line">     [[NSUserDefaults standardUserDefaults] synchronize];</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="pch的设置"><a href="#pch的设置" class="headerlink" title="pch的设置"></a>pch的设置</h2><ul>
+<h3 id="pch的设置"><a href="#pch的设置" class="headerlink" title="pch的设置"></a>pch的设置</h3><ul>
 <li><p>bulidsettings里面搜索<code>prefix</code>字段</p>
-<p>   <img src="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png" alt=""></p>
+<p>   <img src="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png?imageMogr2/thumbnail/480x" alt=""></p>
 </li>
 <li><p>pch和混编的时候，因为pch会在所有文件添加pch里面的东西，所以需要在pch的头部判断是否为objc的文件</p>
    <figure class="highlight plain"><figcaption><span>__OBJC__    #endif</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="UIViewCOntroller的loadView"><a href="#UIViewCOntroller的loadView" class="headerlink" title="UIViewCOntroller的loadView"></a>UIViewCOntroller的loadView</h2><p>因为view是懒加载的，所以第一次使用到的时候在view的get函数中会首先调用<code>loadView</code>，然后调用<code>viewDidLoad</code></p>
-<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png" alt=""></p>
-<ul>
-<li></li>
+<h3 id="UIViewController的loadView"><a href="#UIViewController的loadView" class="headerlink" title="UIViewController的loadView"></a>UIViewController的loadView</h3><p>因为view是懒加载的，所以第一次使用到的时候在view的get函数中会首先调用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">![](http://7xsglu.com1.z0.glb.clouddn.com/loadView.png?imageMogr2/thumbnail/480x)</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">### UINavigationViewController</span><br><span class="line"></span><br><span class="line">- popViewController后控制器不会立马销毁，要等到动画执行完毕后再调用dealloc</span><br><span class="line"></span><br><span class="line">- 导航栏的内容由栈顶控制器的navigationItem属性决定</span><br></pre></td></tr></table></figure></p>
+<pre><code>self.navigationItem.title = @&quot;标题&quot;;
+//self.navigationController.navigationItem.title = @&quot;这种写法是错误的&quot;;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">- 导航按钮自定义控件</span><br><span class="line">	如果是UIButton的话，可以使用 ```[btn sizeToFit]```。实现控件的尺寸由图片决定。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Segue</span><br><span class="line"></span><br><span class="line">- ``` performSegueWithIdentifier``` 不会立即跳转。会先执行``` prepareForSegue```后完成跳转。 </span><br><span class="line"></span><br><span class="line">### UITableView 分割线</span><br><span class="line"></span><br><span class="line">- 没有数据的时候不显示分割线的技巧</span><br></pre></td></tr></table></figure>
+</code></pre><p>self.tableView.tableFooterView = [UIView alloc] init];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### block</span><br><span class="line"></span><br><span class="line">- XCode中使用```inline```快捷键来定义一个block</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 沙盒路径</span><br><span class="line"></span><br><span class="line">- 获取沙盒的Library/Cache目录</span><br><span class="line"></span><br><span class="line">![](http://7xsglu.com1.z0.glb.clouddn.com/iOSBasicshahe.png?imageMogr2/thumbnail/480x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### iOS事件</span><br><span class="line"></span><br><span class="line">- 默认情况下，UIView是不支持多点触控的，需要设置Multi Touch属性</span><br><span class="line"></span><br><span class="line">- hitTest的作用就是寻找最合适的View，hitTest的底层实现原理：</span><br></pre></td></tr></table></figure></p>
+<pre><code>    - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+    {
+    //    NSLog(@&quot;%@--hitTest&quot;,[self class]);
+    //    return [super hitTest:point withEvent:event];
+
+
+    // 1.判断当前控件能否接收事件
+    if (self.userInteractionEnabled == NO || self.hidden == YES || self.alpha &lt;= 0.01) return nil;
+
+    // 2. 判断点在不在当前控件
+    if ([self pointInside:point withEvent:event] == NO) return nil;
+
+    // 3.从后往前遍历自己的子控件
+    NSInteger count = self.subviews.count;
+    for (NSInteger i = count - 1; i &gt;= 0; i--) {
+    UIView *childView = self.subviews[i];
+    // 把当前控件上的坐标系转换成子控件上的坐标系
+     CGPoint childP = [self convertPoint:point toView:childView];
+
+       UIView *fitView = [childView hitTest:childP withEvent:event];
+    if (fitView) { // 寻找到最合适的view
+        return fitView;
+    }        
+}
+    // 循环结束,表示没有比自己更合适的view
+    return self;
+}
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">- 长按手势默认会触发两次。可以判断长按手势的state属性为UIGestureRecognizerStateEnd时才处理</span><br><span class="line"></span><br><span class="line">- 默认一个控件同时只支持一个手势。要实现同时实现多个手势，需要实现``` gestureRecognizershouldRecognizeSimulaneous</span><br><span class="line">WithGestureRecognizer:</span><br></pre></td></tr></table></figure>
+</code></pre><p>这个代理方法，并且返回YES.</p>
+<h3 id="核心动画"><a href="#核心动画" class="headerlink" title="核心动画"></a>核心动画</h3><ul>
+<li>超出图片的边框全部裁掉 <figure class="highlight plain"><figcaption><span>= YES;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- position和anchorPoint</span><br><span class="line"></span><br><span class="line">	![](http://7xsglu.com1.z0.glb.clouddn.com/position.png?imageMogr2/thumbnail/480x)</span><br><span class="line"></span><br><span class="line">- 定时器</span><br><span class="line"></span><br><span class="line"> 	```NSTimer```很少用于绘图，因为调度的优先级比较低，所以使用```CADisplayLink</span><br></pre></td></tr></table></figure></li>
+</ul>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//定义</span><br><span class="line">  CADisplayLink *dLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refresh)];</span><br><span class="line">  //添加到主运行循环.会自动Retain</span><br><span class="line">  [dLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];</span><br></pre></td></tr></table></figure>
+</code></pre><ul>
+<li>核心动画一切都是假象，并不会真实的改变图层的属性；UIView动画必须要修改属性值才能实现动画。</li>
 </ul>
 
       
