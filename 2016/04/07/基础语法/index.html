@@ -29,7 +29,7 @@ copy
 copy 返回不可变的字符串对象，mutableCopy返回可变的字符串对象。
   123456NSString *str = @&amp;quot;12&amp;quot;;[str copy];// 不会产生新的对象，返回不可">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/copyyufa.png?imageMogr2/thumbnail/600x">
-<meta property="og:updated_time" content="2016-04-07T03:50:33.000Z">
+<meta property="og:updated_time" content="2016-04-07T03:52:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
 <meta name="twitter:description" content="语法知识static
@@ -255,7 +255,7 @@ copy 返回不可变的字符串对象，mutableCopy返回可变的字符串对�
 <h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><ul>
 <li><font color="red">将项目中的所有常量定义在一个ICIConst.h 中，在.m文件中定义常量的值</font>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	UIKIT_EXTERN const CGFloat ICIMargin;//.h文件</span><br><span class="line">	UIKIT_EXTERN NSString * const ICIName;</span><br><span class="line">	</span><br><span class="line">	const CGFloat ICIMargin = 44;//.m文件</span><br><span class="line">	NSString * const ICIName = @&quot;andy&quot;; //因为OC的原因，修改字符串使用ICIName = 	//@&quot;newName&quot;,和c语言不同，不是使用 *ICIName，所以需要将const来修饰 ICIName;</span><br><span class="line"></span><br><span class="line">	```	</span><br><span class="line">	</span><br><span class="line">- const 修饰指针的时候，就看const右边是什么，如果是\*p，那么\*p不能修改，p可以修改；如果是p那么p不能修改，*p可以修改；</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	UIKIT_EXTERN const CGFloat ICIMargin;//.h文件</span><br><span class="line">	UIKIT_EXTERN NSString * const ICIName;</span><br><span class="line">	</span><br><span class="line">	const CGFloat ICIMargin = 44;//.m文件</span><br><span class="line">	NSString * const ICIName = @\&quot;andy\&quot;; </span><br><span class="line">	//因为OC的原因，修改字符串使用ICIName=@&quot;newName&quot;,和c语言不同，不是使用 *ICIName，所以需要将const来修饰 ICIName;</span><br><span class="line"></span><br><span class="line">	```	</span><br><span class="line">	</span><br><span class="line">- const 修饰指针的时候，就看const右边是什么，如果是\*p，那么\*p不能修改，p可以修改；如果是p那么p不能修改，*p可以修改；</span><br></pre></td></tr></table></figure>
 <p>const int <em>p1 = NULL;// </em>p不可以修改，p可以修改<br>int const <em>p2 = NULL;// 这句和上面的作用一样<br>int </em> const p3 = NULL;// <em>p可以修改，p不可以修改，<br>int a1 = 10；
 </em>p1 = 20;//错误<br>p = &a;//正确<br>*p3 = 20;//正确<br>p3 = &a;//错误</p>
 </li>
