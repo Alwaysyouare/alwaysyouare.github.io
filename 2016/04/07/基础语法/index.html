@@ -6,28 +6,42 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Alwaysyouare</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="项目中的常见文件
-info.plist中的版本号为Bundle versions string, short这个字段对应的值
-获取版本号
-123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion = [NSBu">
+  <meta name="description" content="语法知识static
+static 修饰局部变量的作用是让局部变量只初始化一次，局部变量在内存中只有一份。
+
+static 修饰全局变量，全局变量的作用域仅限于当前文件。
+
+
+copy
+copy 返回不可变的字符串对象，mutableCopy返回可变的字符串对象。
+  123456NSString *str = @&amp;quot;12&amp;quot;;[str copy];// 不会产生新的对象，返回不可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Alwaysyouare">
-<meta property="og:url" content="http://yoursite.com/2016/03/31/iOS基础-一-md/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/基础语法/index.html">
 <meta property="og:site_name" content="Alwaysyouare">
-<meta property="og:description" content="项目中的常见文件
-info.plist中的版本号为Bundle versions string, short这个字段对应的值
-获取版本号
-123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion = [NSBu">
-<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png">
-<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png">
-<meta property="og:updated_time" content="2016-03-30T16:30:29.000Z">
+<meta property="og:description" content="语法知识static
+static 修饰局部变量的作用是让局部变量只初始化一次，局部变量在内存中只有一份。
+
+static 修饰全局变量，全局变量的作用域仅限于当前文件。
+
+
+copy
+copy 返回不可变的字符串对象，mutableCopy返回可变的字符串对象。
+  123456NSString *str = @&amp;quot;12&amp;quot;;[str copy];// 不会产生新的对象，返回不可">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/copyyufa.png =400x">
+<meta property="og:updated_time" content="2016-04-07T03:12:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
-<meta name="twitter:description" content="项目中的常见文件
-info.plist中的版本号为Bundle versions string, short这个字段对应的值
-获取版本号
-123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion = [NSBu">
-<meta name="twitter:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png">
+<meta name="twitter:description" content="语法知识static
+static 修饰局部变量的作用是让局部变量只初始化一次，局部变量在内存中只有一份。
+
+static 修饰全局变量，全局变量的作用域仅限于当前文件。
+
+
+copy
+copy 返回不可变的字符串对象，mutableCopy返回可变的字符串对象。
+  123456NSString *str = @&amp;quot;12&amp;quot;;[str copy];// 不会产生新的对象，返回不可">
+<meta name="twitter:image" content="http://7xsglu.com1.z0.glb.clouddn.com/copyyufa.png =400x">
   
     <link rel="alternative" href="/atom.xml" title="Alwaysyouare" type="application/atom+xml">
   
@@ -209,11 +223,11 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-iOS基础-一-md" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-基础语法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/31/iOS基础-一-md/" class="article-date">
-  	<time datetime="2016-03-30T16:25:25.000Z" itemprop="datePublished">2016-03-31</time>
+      <a href="/2016/04/07/基础语法/" class="article-date">
+  	<time datetime="2016-04-07T03:11:38.000Z" itemprop="datePublished">2016-04-07</time>
 </a>
     </div>
   
@@ -224,25 +238,31 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="项目中的常见文件"><a href="#项目中的常见文件" class="headerlink" title="项目中的常见文件"></a>项目中的常见文件</h2><ul>
-<li>info.plist中的版本号为<code>Bundle versions string, short</code>这个字段对应的值</li>
-<li><p>获取版本号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">NSString *keyForVersion = @&quot;CFBundleShortVersionString&quot;;</span><br><span class="line"> //当前软件的版本号</span><br><span class="line"> NSString *currentVersion = [NSBundle mainBundle].infoDictionary[keyForVersion];</span><br><span class="line"> //沙盒中存储的版本号</span><br><span class="line"> NSString *sandBoxVersion = [[NSUserDefaults standardUserDefaults] stringForKey:keyForVersion];</span><br><span class="line"> if (![currentVersion isEqualToString:sandBoxVersion]) &#123;</span><br><span class="line">     //需要显示</span><br><span class="line">     UIWindow *window = [UIApplication sharedApplication].keyWindow;</span><br><span class="line">     ICIPushGuideView *pushGuideView = [ICIPushGuideView viewFromXib];</span><br><span class="line">     pushGuideView.frame = window.frame;</span><br><span class="line">     [window addSubview:pushGuideView];</span><br><span class="line">     //存储版本号</span><br><span class="line">     [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:keyForVersion];</span><br><span class="line">     [[NSUserDefaults standardUserDefaults] synchronize];</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="语法知识"><a href="#语法知识" class="headerlink" title="语法知识"></a>语法知识</h2><h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><ul>
+<li><p>static 修饰局部变量的作用是让局部变量只初始化一次，局部变量在内存中只有一份。</p>
+</li>
+<li><p>static 修饰全局变量，全局变量的作用域仅限于当前文件。</p>
 </li>
 </ul>
-<h2 id="pch的设置"><a href="#pch的设置" class="headerlink" title="pch的设置"></a>pch的设置</h2><ul>
-<li><p>bulidsettings里面搜索<code>prefix</code>字段</p>
-<p>   <img src="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png" alt=""></p>
+<h3 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h3><ul>
+<li><p>copy 返回不可变的字符串对象，mutableCopy返回可变的字符串对象。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NSString *str = @&quot;12&quot;;</span><br><span class="line">[str copy];// 不会产生新的对象，返回不可变的字符串；</span><br><span class="line">[str mutableCopy];//产生新的对象，返回可变的字符串；</span><br><span class="line">NSMutableString *strMutable = @&quot;123&quot;;</span><br><span class="line">[strMutable copy];//产生新对象，返回不可变的字符串</span><br><span class="line">[strMyutable mutableCopy];//产生新对象，返回可变的字符串。</span><br></pre></td></tr></table></figure>
+<p>  <img src="http://7xsglu.com1.z0.glb.clouddn.com/copyyufa.png =400x" alt=""></p>
 </li>
-<li><p>pch和混编的时候，因为pch会在所有文件添加pch里面的东西，所以需要在pch的头部判断是否为objc的文件</p>
-   <figure class="highlight plain"><figcaption><span>__OBJC__    #endif</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+<li><p>property里面的copy相当于set方法中使用字符串的copy设置该属性值。</p>
 </li>
 </ul>
-<h2 id="UIViewCOntroller的loadView"><a href="#UIViewCOntroller的loadView" class="headerlink" title="UIViewCOntroller的loadView"></a>UIViewCOntroller的loadView</h2><p>因为view是懒加载的，所以第一次使用到的时候在view的get函数中会首先调用<code>loadView</code>，然后调用<code>viewDidLoad</code></p>
-<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/loadView.png" alt=""></p>
-<ul>
-<li></li>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><ul>
+<li><font color="red">将项目中的所有常量定义在一个ICIConst.h 中，在.m文件中定义常量的值</font>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	UIKIT_EXTERN const CGFloat ICIMargin;//.h文件</span><br><span class="line">	UIKIT_EXTERN NSString * const ICIName;</span><br><span class="line">	</span><br><span class="line">	const CGFloat ICIMargin = 44;//.m文件</span><br><span class="line">	NSString * const ICIName = @&quot;andy&quot;; //因为OC的原因，修改字符串使用ICIName = @&quot;newName&quot;,和c语言不同，不是使用 *ICIName，所以需要将const来修饰 ICIName;</span><br><span class="line"></span><br><span class="line">	```	</span><br><span class="line">- const 修饰指针的时候，就看const右边是什么，如果是*p，那么*p不能修改，p可以修改；如果是p那么p不能修改，*p可以修改；</span><br></pre></td></tr></table></figure>
+<p>const int <em>p1 = NULL;// </em>p不可以修改，p可以修改<br>int const <em>p2 = NULL;// 这句和上面的作用一样<br>int </em> const p3 = NULL;// <em>p可以修改，p不可以修改，<br>int a1 = 10；
+</em>p1 = 20;//错误<br>p = &a;//正确<br>*p3 = 20;//正确<br>p3 = &a;//错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数组和指针</span><br><span class="line"></span><br><span class="line">- 指针p + N</span><br><span class="line">    - p里面存储的地址值 + N * 指针所指向类型的占用字节数</span><br><span class="line">- 指针p - N</span><br><span class="line">    - p里面存储的地址值 - N * 指针所指向类型的占用字节数</span><br><span class="line">    </span><br><span class="line">- 数组名</span><br><span class="line">	- 存储的是`数组首元素`的地址</span><br><span class="line">	- 等价于:一个指向`数组首元素`的指针</span><br><span class="line">	- `数组名 + 1` 的跨度：`数组首元素`的占用字节数</span><br><span class="line"></span><br><span class="line">- 其他结论</span><br><span class="line">	- `&amp;num + 1`的跨度：`num`的占用字节数</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<p>int numbers[4] = {10,20,30,40};<br>//number是相当于&amp;numbers[0]，指向数组首元素的指针<br>int <em>p = (int </em>)(&amp;numbers + 1);//&amp;numbers相当于指向数组的一个指针，+1就相当于+指针指向数组的字节数，为16；<br>NSLog(@”%d”,*(p-1));</p>
+<p>```</p>
 
       
     </div>
@@ -252,17 +272,8 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
     
 <nav id="article-nav">
   
-    <a href="/2016/04/07/基础语法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/25/重新开始/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/03/31/iOS基础-一-md/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -298,7 +309,7 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="iOS基础-一-md" data-title="" data-url="http://yoursite.com/2016/03/31/iOS基础-一-md/"></div>
+	<div class="ds-thread" data-thread-key="基础语法" data-title="" data-url="http://yoursite.com/2016/04/07/基础语法/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
