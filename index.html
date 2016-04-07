@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -357,6 +357,26 @@
 <pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//定义</span><br><span class="line">  CADisplayLink *dLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refresh)];</span><br><span class="line">  //添加到主运行循环.会自动Retain</span><br><span class="line">  [dLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];</span><br></pre></td></tr></table></figure>
 </code></pre><ul>
 <li>核心动画一切都是假象，并不会真实的改变图层的属性；UIView动画必须要修改属性值才能实现动画。</li>
+</ul>
+<h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><ul>
+<li>单例模式可以保证在整个程序中，一个类只有一个实例。</li>
+<li><p>单例的实现</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">@interface ICISingleton()&lt;NSCopying&gt;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">static ICISingleton *_singleton;</span><br><span class="line"></span><br><span class="line">@implementation ICISingleton</span><br><span class="line"></span><br><span class="line">//alloc实质是调用这个函数，里面once的作用，不论alloc多少次，只调用一次allocWithZone</span><br><span class="line">+(instancetype)allocWithZone:(struct _NSZone *)zone</span><br><span class="line">&#123;</span><br><span class="line">  		static dispatch_once_t onceToken;</span><br><span class="line">  		dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">      		_singleton = [super allocWithZone:zone];</span><br><span class="line">  		&#125;);</span><br><span class="line">  		return _singleton;</span><br><span class="line">&#125;</span><br><span class="line">//对外提供使用的函数，里面的once作用是不论多少次的shared，只会调用一次init</span><br><span class="line">+(instancetype)sharedSingleton</span><br><span class="line">&#123;</span><br><span class="line">  		static dispatch_once_t onceToken;</span><br><span class="line">  		dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">      		_singleton = [[self alloc] init];</span><br><span class="line">  		&#125;);</span><br><span class="line">  		return _singleton;</span><br><span class="line">&#125;</span><br><span class="line">//保证使用对象的copy方法时，也只有一份实例</span><br><span class="line">-(instancetype)copyWithZone:(NSZone *)zone</span><br><span class="line">&#123;</span><br><span class="line">  		return _singleton;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="RunLoop"><a href="#RunLoop" class="headerlink" title="RunLoop"></a>RunLoop</h3><ul>
+<li><p>当UIScrollView滑动的时候，RunLoop自动切换到<code>UITrackingRunLoopMode</code>,停止滚动的时候会切换回<code>kCFRunLoopDefaultMode</code>。</p>
+</li>
+<li><p><code>NSRunLoopCommonModes</code> 表示定时器会跑在带有CommonModes模式下的RunLoop,也就是可以跑在<code>kCFRunLoopDefaultMode</code>和<code>UITrackingRunLoopMode</code>标示的RunLoop。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(run)];</span><br><span class="line"></span><br><span class="line">[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>NSTimer调用<code>[NSTimer scheduledTimerWithInterval:2.0 target:self selector:@selector(run) userInfo:nil repeat:YES]</code>后，会自动添加到RunLoop中，并且是默认模式，kCFRunLoopDefaultMode。不过可以使用类似上面的<code>addTimer:forMode</code>方法修改timer的运行模式。</p>
+</li>
+<li><p>RunLoop的运行流程</p>
+<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/runloop.png?imageMogr2/thumbnail/480x" alt=""></p>
+</li>
 </ul>
 
       
