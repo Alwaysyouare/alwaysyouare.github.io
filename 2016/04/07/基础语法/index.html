@@ -29,7 +29,8 @@ copy
 copy 返回不可变的字符串对象，mutableCopy返回可变的字符串对象。
   123456NSString *str = @&amp;quot;12&amp;quot;;[str copy];// 不会产生新的对象，返回不可">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/copyyufa.png?imageMogr2/thumbnail/600x">
-<meta property="og:updated_time" content="2016-04-07T03:59:32.000Z">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/constinfo.png?imageMogr2/thumbnail/600x">
+<meta property="og:updated_time" content="2016-04-07T04:02:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
 <meta name="twitter:description" content="语法知识static
@@ -253,22 +254,40 @@ copy 返回不可变的字符串对象，mutableCopy返回可变的字符串对�
 </li>
 </ul>
 <h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><ul>
-<li><font color="red">将项目中的所有常量定义在一个ICIConst.h 中，在.m文件中定义常量的值.因为OC修改字符串使用ICIName,和c语言不同，不是使用 *ICIName，所以将const来修饰 ICIName.</font>
+<li><font color="red">将项目中的所有常量定义在一个ICIConst.h 中，在.m文件中定义常量的值.</font>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	UIKIT_EXTERN const CGFloat ICIMargin;//.h文件</span><br><span class="line">	UIKIT_EXTERN NSString * const ICIName;</span><br><span class="line">	</span><br><span class="line">	const CGFloat ICIMargin = 44;//.m文件</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	```	</span><br><span class="line">	</span><br><span class="line">-  const 修饰指针的时候，就看const右边是什么，如果是\*p，那么\*p不能修改，p可以修改；如果是p那么p不能修改，*p可以修改；</span><br></pre></td></tr></table></figure>
-<p>const int <em>p1 = NULL;// </em>p不可以修改，p可以修改<br>int const <em>p2 = NULL;// 这句和上面的作用一样<br>int </em> const p3 = NULL;// <em>p可以修改，p不可以修改，<br>int a1 = 10；
-</em>p1 = 20;//错误<br>p = &a;//正确<br>*p3 = 20;//正确<br>p3 = &a;//错误</p>
+<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/constinfo.png?imageMogr2/thumbnail/600x" alt="">    </p>
+</li>
+<li><p>const 修饰指针的时候，就看const右边是什么，如果是*p，那么*p不能修改，p可以修改；如果是p那么p不能修改，*p可以修改；</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const int *p1 = NULL;// *p不可以修改，p可以修改</span><br><span class="line">int const *p2 = NULL;// 这句和上面的作用一样</span><br><span class="line">int * const p3 = NULL;// *p可以修改，p不可以修改，</span><br><span class="line">int a1 = 10；</span><br><span class="line">*p1 = 20;//错误</span><br><span class="line">p = &amp;a;//正确</span><br><span class="line">*p3 = 20;//正确</span><br><span class="line">p3 = &amp;a;//错误</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 数组和指针</span><br><span class="line"></span><br><span class="line">- 指针p + N</span><br><span class="line">    - p里面存储的地址值 + N * 指针所指向类型的占用字节数</span><br><span class="line">- 指针p - N</span><br><span class="line">    - p里面存储的地址值 - N * 指针所指向类型的占用字节数</span><br><span class="line">    </span><br><span class="line">- 数组名</span><br><span class="line">	- 存储的是`数组首元素`的地址</span><br><span class="line">	- 等价于:一个指向`数组首元素`的指针</span><br><span class="line">	- `数组名 + 1` 的跨度：`数组首元素`的占用字节数</span><br><span class="line"></span><br><span class="line">- 其他结论</span><br><span class="line">	- `&amp;num + 1`的跨度：`num`的占用字节数</span><br></pre></td></tr></table></figure>
+<h3 id="数组和指针"><a href="#数组和指针" class="headerlink" title="数组和指针"></a>数组和指针</h3><ul>
+<li>指针p + N<ul>
+<li>p里面存储的地址值 + N * 指针所指向类型的占用字节数</li>
+</ul>
+</li>
+<li><p>指针p - N</p>
+<ul>
+<li>p里面存储的地址值 - N * 指针所指向类型的占用字节数</li>
+</ul>
+</li>
+<li><p>数组名</p>
+<ul>
+<li>存储的是<code>数组首元素</code>的地址</li>
+<li>等价于:一个指向<code>数组首元素</code>的指针</li>
+<li><code>数组名 + 1</code> 的跨度：<code>数组首元素</code>的占用字节数</li>
+</ul>
+</li>
+<li><p>其他结论</p>
+<ul>
+<li><p><code>&amp;num + 1</code>的跨度：<code>num</code>的占用字节数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int numbers[4] = &#123;10,20,30,40&#125;;</span><br><span class="line">//number是相当于&amp;numbers[0]，指向数组首元素的指针</span><br><span class="line">int *p = (int *)(&amp;numbers + 1);//&amp;numbers相当于指向数组的一个指针，+1就相当于+指针		指向数组的字节数，为16；</span><br><span class="line">NSLog(@&quot;%d&quot;,*(p-1));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 
-int numbers[4] = {10,20,30,40};
-//number是相当于&amp;numbers[0]，指向数组首元素的指针
-int *p = (int *)(&amp;numbers + 1);//&amp;numbers相当于指向数组的一个指针，+1就相当于+指针        指向数组的字节数，为16；
-NSLog(@&quot;%d&quot;,*(p-1));
-
-```
-</code></pre>
       
     </div>
     
