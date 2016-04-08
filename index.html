@@ -198,6 +198,66 @@
 
       <div class="body-wrap">
   
+    <article id="post-RunLoop" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/08/RunLoop/" class="article-date">
+  	<time datetime="2016-04-08T02:44:18.000Z" itemprop="datePublished">2016-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="RunLoop"><a href="#RunLoop" class="headerlink" title="RunLoop"></a>RunLoop</h3><ul>
+<li><p>RunLoop 就是运行循环；</p>
+<ul>
+<li>实质上就是在一个do..while循环中处理各种任务；</li>
+<li>一个线程对应一个RunLoop，调用 currentRunLoop会获取当前线程的RunLoop；</li>
+<li>主线程的RunLoop会自动启动，其他线程的需要自己启动run；</li>
+<li>RunLoop只能使用一个模式启动。</li>
+</ul>
+</li>
+<li><p>RunLoop的使用场景</p>
+<ul>
+<li>实现一个常驻线程；可以开启一个定时器，也可以在子线程中长期监控某些行为；</li>
+<li>可以控制定时器在特定模式下执行；</li>
+</ul>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/08/RunLoop/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-基础语法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
