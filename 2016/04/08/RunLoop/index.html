@@ -35,7 +35,8 @@ RunLoop的使用场景
 
 实现一个常驻线程；可以开启一个定时器，也可以在子线程中长期">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/runloop.png?imageMogr2/thumbnail/480x">
-<meta property="og:updated_time" content="2016-04-08T02:45:38.000Z">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/gcdtimer.png?imageMogr2/thumbnail/600x">
+<meta property="og:updated_time" content="2016-04-08T12:11:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
 <meta name="twitter:description" content="RunLoop
@@ -279,26 +280,29 @@ RunLoop的使用场景
 </li>
 </ul>
 <ul>
-<li><p>RunLoop实现常驻线程.autoreleasepool的作用就是在上图即将休眠之前(kCFRunLoopBeforeWaiting)进行自动释放。</p>
+<li><p>RunLoop实现常驻线程.autoreleasepool的作用就是在上图即将休眠之前(kCFRunLoopBeforeWaiting)进行自动释放，释放后在睡眠之前会创建新的释放池。</p>
 <pre><code>
-  - (void)viewDidLoad 
+ -(void)viewDidLoad 
  {
     [super viewDidLoad];
-    self.thread = [[NSThread alloc] initWithTarget:self selector:@selector(excute)         object:nil];
+    self.thread = [[NSThread alloc] initWithTarget:self             selector:@selector(excute) object:nil];
     [self.thread start];
 }
 
-- (void)excute
+-(void)excute
 {
     @autoreleasepool{
-    NSLog(@&quot;----------run----%@&quot;, [NSThread currentThread]);
-
-    [[NSRunLoop currentRunLoop] addPort:[NSPort port]             forMode:NSDefaultRunLoopMode];
-    [[NSRunLoop currentRunLoop] run];
+        NSLog(@&quot;----------run----%@&quot;, [NSThread currentThread]);
+        [[NSRunLoop currentRunLoop] addPort:[NSPort port]             forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] run];
     }
 }
 </code></pre></li>
 </ul>
+<ul>
+<li>GCD的定时器不受RunLoop的Mode的影响。</li>
+</ul>
+<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/gcdtimer.png?imageMogr2/thumbnail/600x" alt=""></p>
 
       
     </div>
