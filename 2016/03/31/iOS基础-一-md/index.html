@@ -20,7 +20,8 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 123456789101112131415NSString *keyForVersion = @&amp;quot;CFBundleShortVersionString&amp;quot;; //当前软件的版本号 NSString *currentVersion">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png?imageMogr2/thumbnail/480x">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/jsoc.png?imageMogr2/thumbnail/600x">
-<meta property="og:updated_time" content="2016-04-08T16:56:48.000Z">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/invocation.png?imageMogr2/thumbnail/600x">
+<meta property="og:updated_time" content="2016-04-09T15:53:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
 <meta name="twitter:description" content="iOS基础知识项目中的常见文件
@@ -291,9 +292,17 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 <li><p>oc调用js。使用webView的<code>stringByEvaluatingJavaScriptFromString:@&quot;alert(10)&quot;;</code>来调用js。</p>
 </li>
 <li><p>js调用oc。监控webview的代理方法来实现</p>
+<p>  <img src="http://7xsglu.com1.z0.glb.clouddn.com/jsoc.png?imageMogr2/thumbnail/600x" alt=""></p>
 </li>
 </ul>
-<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/jsoc.png?imageMogr2/thumbnail/600x" alt=""></p>
+<h3 id="NSInvocation"><a href="#NSInvocation" class="headerlink" title="NSInvocation"></a>NSInvocation</h3><ul>
+<li><p>给NSObject增加分类，来实现performSelector传递N个参数</p>
+<p>  <img src="http://7xsglu.com1.z0.glb.clouddn.com/invocation.png?imageMogr2/thumbnail/600x" alt=""></p>
+</li>
+</ul>
+<h3 id="异常捕捉"><a href="#异常捕捉" class="headerlink" title="异常捕捉"></a>异常捕捉</h3><ul>
+<li>在AppDelegate的<code>didFinishLauchingWithOptions:</code>方法中增加<code>NSSetUnaughtExceptionHandler(handleException)</code>来进行全局捕捉.</li>
+</ul>
 
       
     </div>
