@@ -6,16 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Alwaysyouare</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎来到我的博客 今天是个特殊的日子。2010年3月25日到2016年3月25日，六年了，宠爱你始终如一。">
+  <meta name="description" content="iOS9新特性nonnull
+新的修饰符nonnull nullable null_resettable,其作用：
+
+
+泛型.类似Java的泛型定义
+12@property (nonatomic, strong) NSMutableArray&amp;lt;NSString *&amp;gt; *names;@property (nonatomic, strong) NSMutableDictionary&amp;lt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Alwaysyouare">
-<meta property="og:url" content="http://yoursite.com/2016/03/24/hello-world/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/04/10/iOS9新特性/index.html">
 <meta property="og:site_name" content="Alwaysyouare">
-<meta property="og:description" content="欢迎来到我的博客 今天是个特殊的日子。2010年3月25日到2016年3月25日，六年了，宠爱你始终如一。">
-<meta property="og:updated_time" content="2016-03-25T08:01:45.000Z">
+<meta property="og:description" content="iOS9新特性nonnull
+新的修饰符nonnull nullable null_resettable,其作用：
+
+
+泛型.类似Java的泛型定义
+12@property (nonatomic, strong) NSMutableArray&amp;lt;NSString *&amp;gt; *names;@property (nonatomic, strong) NSMutableDictionary&amp;lt;">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/nonnull.png?imageMogr2/thumbnail/600x">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/ios9window.png?imageMogr2/thumbnail/600x">
+<meta property="og:updated_time" content="2016-04-10T15:51:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
-<meta name="twitter:description" content="欢迎来到我的博客 今天是个特殊的日子。2010年3月25日到2016年3月25日，六年了，宠爱你始终如一。">
+<meta name="twitter:description" content="iOS9新特性nonnull
+新的修饰符nonnull nullable null_resettable,其作用：
+
+
+泛型.类似Java的泛型定义
+12@property (nonatomic, strong) NSMutableArray&amp;lt;NSString *&amp;gt; *names;@property (nonatomic, strong) NSMutableDictionary&amp;lt;">
+<meta name="twitter:image" content="http://7xsglu.com1.z0.glb.clouddn.com/nonnull.png?imageMogr2/thumbnail/600x">
   
     <link rel="alternative" href="/atom.xml" title="Alwaysyouare" type="application/atom+xml">
   
@@ -197,11 +215,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOS9新特性" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/24/hello-world/" class="article-date">
-  	<time datetime="2016-03-24T15:47:49.000Z" itemprop="datePublished">2016-03-24</time>
+      <a href="/2016/04/10/iOS9新特性/" class="article-date">
+  	<time datetime="2016-04-10T14:45:54.000Z" itemprop="datePublished">2016-04-10</time>
 </a>
     </div>
   
@@ -212,7 +230,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h2><p> 今天是个特殊的日子。2010年3月25日到2016年3月25日，六年了，宠爱你始终如一。</p>
+        <h2 id="iOS9新特性"><a href="#iOS9新特性" class="headerlink" title="iOS9新特性"></a>iOS9新特性</h2><h3 id="nonnull"><a href="#nonnull" class="headerlink" title="nonnull"></a>nonnull</h3><ul>
+<li><p>新的修饰符<code>nonnull</code> <code>nullable</code> <code>null_resettable</code>,其作用：</p>
+<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/nonnull.png?imageMogr2/thumbnail/600x" alt=""></p>
+</li>
+<li><p>泛型.类似Java的泛型定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic, strong) NSMutableArray&lt;NSString *&gt; *names;</span><br><span class="line">@property (nonatomic, strong) NSMutableDictionary&lt;NSString *, NSNumber *&gt; *books;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><code>__kindof</code>关键字会告诉编译器返回的可能是某种类型或者其子类型的数据</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+(__kindof NSString *)getString;</span><br></pre></td></tr></table></figure>
+<h3 id="UIWindow"><a href="#UIWindow" class="headerlink" title="UIWindow"></a>UIWindow</h3><ul>
+<li>iOS9后任何的UIWindow都需要一个根控制器。并且状态栏是由UIWindow的顶层控制器来决定的。</li>
+<li>可以自定义UIWindow的UIViewController来实现状态栏的控制，或者在自定义的<code>touchesBegan</code>中处理UIWindow的点击事件。<br><img src="http://7xsglu.com1.z0.glb.clouddn.com/ios9window.png?imageMogr2/thumbnail/600x" alt=""></li>
+</ul>
 
       
     </div>
@@ -222,15 +255,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/25/重新开始/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2016/04/08/RunLoop/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -263,7 +292,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="" data-url="http://yoursite.com/2016/03/24/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="iOS9新特性" data-title="" data-url="http://yoursite.com/2016/04/10/iOS9新特性/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
