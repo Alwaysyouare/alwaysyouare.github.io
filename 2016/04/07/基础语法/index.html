@@ -30,7 +30,7 @@ copy 返回不可变的字符串对象，mutableCopy返回可变的字符串对�
   123456NSString *str = @&amp;quot;12&amp;quot;;[str copy];// 不会产生新的对象，返回不可">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/copyyufa.png?imageMogr2/thumbnail/600x">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/constinfo.png?imageMogr2/thumbnail/600x">
-<meta property="og:updated_time" content="2016-04-07T16:30:47.000Z">
+<meta property="og:updated_time" content="2016-04-12T03:39:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
 <meta name="twitter:description" content="语法知识static
@@ -105,7 +105,7 @@ copy 返回不可变的字符串对象，mutableCopy返回可变的字符串对�
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -286,6 +286,13 @@ copy 返回不可变的字符串对象，mutableCopy返回可变的字符串对�
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int numbers[4] = &#123;10,20,30,40&#125;;</span><br><span class="line">//number是相当于&amp;numbers[0]，指向数组首元素的指针</span><br><span class="line">int *p = (int *)(&amp;numbers + 1);//&amp;numbers相当于指向数组的一个指针，+1就相当于+指针		指向数组的字节数，为16；</span><br><span class="line">NSLog(@&quot;%d&quot;,*(p-1));</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+</li>
+</ul>
+<h3 id="NSMutableDictionary的setObject和setValue"><a href="#NSMutableDictionary的setObject和setValue" class="headerlink" title="NSMutableDictionary的setObject和setValue"></a>NSMutableDictionary的setObject和setValue</h3><ul>
+<li>两者的区别：<ol>
+<li><font color="red">setObject:forKey中value不能为nil，否则会报错<br>setValue:forKey中value可以为nil，但是NSMutableDictionary的value不能为nil，所有当使用setValue并且value为nil，NSMutableDictionary会自动调用removeObject：forKey方法。</font></li>
+<li>setValue：forKey：中key的参数只能够是NSString类型，而setObject：forKey：的可以是任何类型。<br>[imageDictionarysetObject:obj forKey:[NSNumber numberWithInt：10]];</li>
+</ol>
 </li>
 </ul>
 

@@ -21,7 +21,9 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/pch-setting.png?imageMogr2/thumbnail/480x">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/jsoc.png?imageMogr2/thumbnail/600x">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/invocation.png?imageMogr2/thumbnail/600x">
-<meta property="og:updated_time" content="2016-04-09T15:53:43.000Z">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/localnotification.png?imageMogr2/thumbnail/600x">
+<meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/iosremote.png?imageMogr2/thumbnail/600x">
+<meta property="og:updated_time" content="2016-04-11T15:01:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
 <meta name="twitter:description" content="iOS基础知识项目中的常见文件
@@ -91,7 +93,7 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -302,6 +304,12 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 </ul>
 <h3 id="异常捕捉"><a href="#异常捕捉" class="headerlink" title="异常捕捉"></a>异常捕捉</h3><ul>
 <li>在AppDelegate的<code>didFinishLauchingWithOptions:</code>方法中增加<code>NSSetUnaughtExceptionHandler(handleException)</code>来进行全局捕捉.</li>
+</ul>
+<h3 id="本地通知"><a href="#本地通知" class="headerlink" title="本地通知"></a>本地通知</h3><ul>
+<li>收到本地通知点击的监听事件是在代理里面’application:didReceiveLocalNotification:’函数,不过这个函数内部需要判断一下应用程序的当前状态，只有在<code>UIApplicationStateInactive</code>状态时才跳转;<br><img src="http://7xsglu.com1.z0.glb.clouddn.com/localnotification.png?imageMogr2/thumbnail/600x" alt=""></li>
+</ul>
+<h3 id="远程通知"><a href="#远程通知" class="headerlink" title="远程通知"></a>远程通知</h3><ul>
+<li>发动的远程通知有一个固定格式<code>content-available</code>；<br><img src="http://7xsglu.com1.z0.glb.clouddn.com/iosremote.png?imageMogr2/thumbnail/600x" alt=""></li>
 </ul>
 
       
