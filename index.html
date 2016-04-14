@@ -217,60 +217,6 @@
 <li>设置控制器上某个UIImageView为圆角的话，应该在’viewWillLayoutSubviews’方法中实现</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">self.imageView.layer.cornerRadius = self.imageview.bounds.width * 0.5;</span><br><span class="line">self.imageView.layer.masksToBounds = YES;</span><br><span class="line">self.imageView.layer.borderWidth = 8.0;</span><br><span class="line">self.imageView.layer.borderColor = ICIColor(36,36,36).CGColor;</span><br></pre></td></tr></table></figure>
-<h3 id="后台播放和锁屏"><a href="#后台播放和锁屏" class="headerlink" title="后台播放和锁屏"></a>后台播放和锁屏</h3><ul>
-<li><p>锁屏信息设置</p>
-<p><img src="http://7xsglu.com1.z0.glb.clouddn.com/audiolock.png?imageMogr2/thumbnail/480x" alt=""></p>
-</li>
-<li><p>后台播放设置。</p>
-<ul>
-<li><p>在<code>application:didFinish</code>中增加</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> // 1.获取音频回话</span><br><span class="line">AVAudioSession *session = [AVAudioSession sharedInstance];</span><br><span class="line">// 2.设置后台播放类别</span><br><span class="line">[session setCategory:AVAudioSessionCategoryPlayback error:nil];</span><br><span class="line">// 3.激活回话</span><br><span class="line">[session setActive:YES error:nil];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在<code>Background Modes</code>中勾选<code>Audio,...</code>一项</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h3><ul>
-<li><p>音效播放（短时间的音频文件）</p>
-<ul>
-<li>AudioServicesCreateSystemSoundID</li>
-<li>AudioServicesPlaySystemSound</li>
-</ul>
-</li>
-<li><p>音乐播放（长时间的音频文件）</p>
-<ul>
-<li>AVAudioPlayer 只能播放本地的音频文件</li>
-<li>MPMusicPlayerController</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>AVPlayer</p>
-<ul>
-<li>能播放本地、远程的音频、视频文件</li>
-<li>基于Layer显示，得自己去编写控制面板</li>
-</ul>
-</li>
-<li><p>MPMoviePlayerController</p>
-<ul>
-<li>能播放本地、远程的音频、视频文件</li>
-<li>自带播放控制面板（暂停、播放、播放进度、是否要全屏）</li>
-</ul>
-</li>
-<li><p>MPMoviePlayerViewController</p>
-<ul>
-<li>能播放本地、远程的音频、视频文件</li>
-<li>内部是封装了MPMoviePlayerController</li>
-<li>播放界面默认就是全屏的</li>
-</ul>
-</li>
-</ul>
-<h3 id="开源框架"><a href="#开源框架" class="headerlink" title="开源框架"></a>开源框架</h3><ul>
-<li>kxmovie, <a href="https://github.com/kolyvan/kxmovie" target="_blank" rel="external">github</a>地址</li>
-</ul>
-
       
     </div>
     
@@ -279,6 +225,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/12/音视频/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

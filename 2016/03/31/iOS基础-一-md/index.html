@@ -23,7 +23,7 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/invocation.png?imageMogr2/thumbnail/600x">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/localnotification.png?imageMogr2/thumbnail/600x">
 <meta property="og:image" content="http://7xsglu.com1.z0.glb.clouddn.com/iosremote.png?imageMogr2/thumbnail/600x">
-<meta property="og:updated_time" content="2016-04-11T15:01:38.000Z">
+<meta property="og:updated_time" content="2016-04-14T15:08:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alwaysyouare">
 <meta name="twitter:description" content="iOS基础知识项目中的常见文件
@@ -310,6 +310,26 @@ info.plist中的版本号为Bundle versions string, short这个字段对应的�
 </ul>
 <h3 id="远程通知"><a href="#远程通知" class="headerlink" title="远程通知"></a>远程通知</h3><ul>
 <li>发动的远程通知有一个固定格式<code>content-available</code>；<br><img src="http://7xsglu.com1.z0.glb.clouddn.com/iosremote.png?imageMogr2/thumbnail/600x" alt=""></li>
+</ul>
+<h3 id="imageName和imageWithContentOfFile"><a href="#imageName和imageWithContentOfFile" class="headerlink" title="imageName和imageWithContentOfFile"></a>imageName和imageWithContentOfFile</h3><ul>
+<li>imageName用在多个界面，使用频率较高，并且图片较小的场景中。<ul>
+<li>当对象销毁时，不会随着对象销毁；</li>
+<li>加载的图片占据内存较大；</li>
+<li>相同的图片只会加载一次，如果同时使用，使用一个对象即可(图标、小的背景图)</li>
+</ul>
+</li>
+<li>imageWithContentOfFile用在一个地方使用，图片较大，频率不高(版本新特性、相册等)<ul>
+<li>当对象销毁时，会随着对象同时销毁；</li>
+<li>加载的图片占用内存较小；</li>
+<li>相同的图片多次使用会多次加载到内存中。</li>
+</ul>
+</li>
+</ul>
+<h3 id="UIView的transform属性"><a href="#UIView的transform属性" class="headerlink" title="UIView的transform属性"></a>UIView的transform属性</h3><ul>
+<li><code>CGAffineTransformMakeTranslation(tx,ty)</code>的位移形变是相对于””初始位置””来变化的</li>
+<li><code>CGAffineTransformTranslate(transform,tx,ty)</code>的位移形变是对View的上次形变的累加。</li>
+<li><p>使用transform控制工具条跟随键盘移动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> -(void)keyboardWillChangeFrame:(NSNotification *)notification</span><br><span class="line">&#123;</span><br><span class="line">    //键盘的最终位置</span><br><span class="line">    CGRect keyboardF = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];</span><br><span class="line">    //执行时间</span><br><span class="line">    CGFloat duaration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue];</span><br><span class="line">    [UIView animateWithDuration:duaration animations:^&#123;</span><br><span class="line">        self.toolBar.transform = CGAffineTransformMakeTranslation(0, keyboardF.origin.y - ICIScreenH);</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
